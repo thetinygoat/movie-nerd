@@ -2,7 +2,6 @@ import * as actionTypes from './actions';
 import axios from '../../axios';
 
 export const homeLoaded = movies => {
-	console.log('home loaded', movies);
 	return {
 		type: actionTypes.HOME_LOADED,
 		movies: movies,
@@ -20,7 +19,6 @@ export const homeLoading = () => {
 					'&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
 			)
 			.then(res => {
-				console.log('[action creator]', res.data.results);
 				dispatch(homeLoaded(res.data.results));
 			});
 	};
