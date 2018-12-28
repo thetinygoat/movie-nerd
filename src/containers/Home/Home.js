@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import MovieCard from '../../components/MovieCard/MovieCard';
-import axios from '../../axios';
+import * as homeAction from '../../store/actions/home';
 
-export default class Home extends Component {
+class Home extends Component {
 	componentDidMount() {
-		axios.get(
-			'discover/movie?api_key=&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
-		);
+		this.props.homeLoading();
 	}
 	render() {
-		return (
-			<div>
-				<MovieCard />
-			</div>
-		);
+		let m = null;
+		if (this.props.home.loading) {
+			m = 'loading...';
+		} else {
+			m = this.props.home.movies.map(movie => {
+				return <MovieCard />;
+			});
+		}
+		return <div>{m}</div>;
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		home: state.home
+	};
+};
+const mapDispatchToProps = dispatch => {
+	return {
+		homeLoading: () => dispatch(homeAction.homeLoading())
+	};
+};
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Home);
