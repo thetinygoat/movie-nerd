@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import 'normalize.css/normalize.css';
+import '@blueprintjs/core/lib/css/blueprint.css';
 
 import first from './store/reducers/root';
 

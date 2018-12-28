@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Navbar from './components/Navigation/Navigation';
 
 class App extends Component {
 	render() {
-		return <div>{this.props.ctr}</div>;
+		return (
+			<div>
+				<Navbar />
+			</div>
+		);
 	}
 }
 
