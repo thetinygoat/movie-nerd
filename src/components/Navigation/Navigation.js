@@ -5,7 +5,8 @@ import {
 	Alignment,
 	FormGroup,
 	InputGroup,
-	NavbarGroup
+	NavbarGroup,
+	Intent
 } from '@blueprintjs/core';
 
 export default function Navigation() {
@@ -20,7 +21,12 @@ export default function Navigation() {
 				</Navbar.Group>
 				<NavbarGroup align={Alignment.RIGHT}>
 					<InputGroup placeholder="Search..." />
-					<Button className="bp3-minimal" icon="document" text="Search" />
+					<Button
+						className="bp3-minimal"
+						icon="search"
+						text="Search"
+						intent={Intent.PRIMARY}
+					/>
 				</NavbarGroup>
 			</Navbar>
 		</div>

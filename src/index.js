@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import 'normalize.css/normalize.css';
-import '@blueprintjs/core/lib/css/blueprint.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import "normalize.css/normalize.css";
+import "@blueprintjs/core/lib/css/blueprint.css";
 
-import first from './store/reducers/root';
+import homeReducer from "./store/reducers/home";
 
 const rootReducer = combineReducers({
-	r: first
+	home: homeReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -25,7 +25,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>,
-	document.getElementById('root')
+	document.getElementById(`root`)
 );
 
 // If you want your app to work offline and load faster, you can change
